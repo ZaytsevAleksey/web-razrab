@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #FFFFFF;
+  }
+  header{
+    width: 1440;
+    height: 101;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-right: 80px;
+    padding-bottom: 24px;
+    padding-left: 80px;
+  }
+  header.logo{
+    width: 108;
+    height: 53;
+    gap: 2px;
+
+  }
