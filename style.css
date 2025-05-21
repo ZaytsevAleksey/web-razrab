@@ -303,7 +303,8 @@ a {
 }
 
 .feature--img-left .feature__inner {
-  flex-direction: row-reverse; 
+  flex-direction: space-around; 
+  gap: 30px;
 }
 
 .cta {
