@@ -1,6 +1,3 @@
-/* =========================== */
-/* СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ */
-/* =========================== */
 *,
 *::before,
 *::after {
@@ -13,14 +10,14 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #F1F5F9; /* Белый фон для секций по умолчанию */
-  color: #343D56; /* Основной цвет текста для светлых секций */
-  overflow-x: hidden; /* Предотвращение горизонтальной прокрутки */
+  background-color: #F1F5F9; 
+  color: #343D56;
+  overflow-x: hidden; 
 }
 
 .container {
   width: 100%;
-  max-width: 1140px; /* Максимальная ширина контейнера */
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -30,14 +27,11 @@ a {
   color: inherit;
 }
 
-/* =========================== */
-/* ОБЩИЕ КЛАССЫ (ЗАГОЛОВКИ, КНОПКИ) */
-/* =========================== */
 .section-title {
   font-size: 36px;
   font-weight: 700;
   color: #343D56;
-  margin-bottom: 24px; /* Отступ снизу для общих заголовков секций */
+  margin-bottom: 24px; 
   text-align: center;
 }
 
@@ -46,7 +40,7 @@ a {
   padding: 10px 24px;
   font-size: 15px;
   font-weight: 500;
-  border-radius: 24px; /* Скругленные кнопки */
+  border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   text-align: center;
@@ -64,22 +58,19 @@ a {
 }
 
 .btn--filled {
-  background-color: #FFFFFF; /* Синий цвет для кнопок */
+  background-color: #FFFFFF;
   color: #434E69;
   border-color: #434E69;
 }
 
 .btn--filled:hover {
-  background-color: #434E69; /* Более темный синий при наведении */
+  background-color: #434E69; 
   border-color: #FFFFFF;
   color: #FFFFFF;
 }
 
-/* =========================== */
-/* HEADER */
-/* =========================== */
 .header {
-  background-color: #434E69; /* Темно-сине-серый фон хедера */
+  background-color: #434E69;
   padding: 18px 0;
   position: sticky;
   top: 0;
@@ -100,18 +91,21 @@ a {
 
 .nav {
   display: flex;
-  gap: 35px; /* Расстояние между ссылками */
+  gap: 35px; 
 }
 
-.nav__link {
+.nav_link {
   color: #FFFFFF;
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s ease;
 }
 
-.nav__link:hover {
-  color: #bdc5e0; /* Светлее при наведении */
+.nav_link:hover {
+  color: #bdc5e0;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  
 }
 
 .header__buttons {
@@ -119,13 +113,10 @@ a {
   gap: 12px;
 }
 
-/* =========================== */
-/* HERO SECTION */
-/* =========================== */
 .hero {
-  background-color: #434E69; /* Фиолетово-синий фон для hero */
+  background-color: #434E69;
   color: #FFFFFF;
-  padding: 80px 0 140px; /* Отступы, нижний больше из-за clip-path */
+  padding: 80px 0 140px;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);
 }
@@ -164,7 +155,6 @@ a {
   max-width: 480px;
 }
 
-/* Кнопка в Hero должна быть контурной */
 .hero__btn.btn--filled {
   background-color: transparent;
   border: 1px solid #FFFFFF;
@@ -177,18 +167,15 @@ a {
 }
 
 .hero__col--img {
-  flex: 0 0 45%; /* Задать относительную ширину для колонки с изображением */
+  flex: 0 0 45%; 
   text-align: right;
 }
 
 .hero__col--img img {
-  max-width: 566px; /* Размер телефона */
+  max-width: 566px; 
   filter: drop-shadow(0px 25px 40px rgba(0, 0, 0, 0.25));
 }
 
-/* =========================== */
-/* PARTNERS SECTION */
-/* =========================== */
 .partners {
   background-color: #F1F5F9;
   padding: 80px 0;
@@ -196,7 +183,7 @@ a {
 }
 
 .partners__title {
-  margin-bottom: 48px; /* Увеличенный отступ для заголовка партнеров */
+  margin-bottom: 48px;
 }
 
 .partners__list {
@@ -204,11 +191,11 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px 60px; /* Промежутки между логотипами */
+  gap: 40px 60px; 
 }
 
 .partners__list img {
-  max-height: 36px; /* Высота логотипов */
+  max-height: 36px;
   opacity: 0.85;
   transition: opacity 0.3s ease;
 }
@@ -217,9 +204,6 @@ a {
   opacity: 1;
 }
 
-/* =========================== */
-/* HOW IT WORKS SECTION */
-/* =========================== */
 .how {
   background-color: #FFFFFF;
   padding: 60px 0;
@@ -269,30 +253,24 @@ a {
   color: #555;
 }
 
-/* =========================== */
-/* FEATURE SECTIONS */
-/* =========================== */
 .feature {
   padding: 80px 0;
 }
 
-/* Первая фича (Turpis...) на белом фоне */
 .feature:not(.alt-bg) {
     background-color: #F1F5F9;
 }
 
-/* Фичи с классом .alt-bg или где изображение слева (Sagittis...) на светло-сером */
 .feature.alt-bg,
 .feature.feature--img-left {
   background-color: #F1F5F9;
 }
 
-
 .feature__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px; /* Промежуток между текстом и изображением */
+  gap: 60px; 
 }
 
 .feature__text {
@@ -301,21 +279,21 @@ a {
 }
 
 .feature__text .section-title {
-  text-align: left; /* Заголовки в фичах выровнены по левому краю */
-  font-size: 32px; /* Немного меньше, чем главный заголовок секции */
+  text-align: left; 
+  font-size: 32px; 
   margin-bottom: 20px;
 }
 
 .feature__desc {
   font-size: 17px;
-  color: #5F6B85; /* Цвет для описаний */
+  color: #5F6B85;
   line-height: 1.7;
 }
 
 .feature__media {
   flex: 1;
   display: flex;
-  justify-content: center; /* Центрируем изображение в колонке */
+  justify-content: center; 
 }
 
 .feature__media img {
@@ -323,18 +301,14 @@ a {
 
 }
 
-/* Для секций, где изображение слева */
 .feature--img-left .feature__inner {
-  flex-direction: row-reverse; /* Меняем порядок колонок */
+  flex-direction: row-reverse; 
 }
 
-/* =========================== */
-/* CTA SECTION */
-/* =========================== */
 .cta {
-  background-color: #434E69; /* Темно-сине-серый фон */
+  background-color: #434E69; 
   color: #FFFFFF;
-  padding: 120px 0 80px; /* Отступы, верхний больше из-за clip-path */
+  padding: 120px 0 80px;
   position: relative;
   clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
 }
@@ -356,7 +330,7 @@ a {
 }
 
 .cta__text .section-title {
-  color: #FFFFFF; /* Белый заголовок на темном фоне */
+  color: #FFFFFF;
   text-align: left;
   font-size: 32px;
   margin-bottom: 16px;
@@ -369,7 +343,7 @@ a {
   opacity: 0.9;
 }
 
-.cta .btn--filled { /* Кнопка в CTA должна быть контурной */
+.cta .btn--filled {
     background-color: transparent;
     border-color: #FFFFFF;
     color:#FFFFFF
@@ -378,12 +352,9 @@ a {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* =========================== */
-/* FOOTER */
-/* =========================== */
 .footer {
-  background-color: #434E69; /* Темно-сине-серый фон футера */
-  color: #F1F5F9; /* Полупрозрачный белый для текста */
+  background-color: #434E69;
+  color: #F1F5F9; 
   padding: 60px 0 20px;
   font-size: 14px;
 }
@@ -391,21 +362,21 @@ a {
 .footer__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px 20px; /* Промежутки между колонками */
+  gap: 30px 20px;
   justify-content: space-between;
   margin-bottom: 40px;
 }
 
 .footer__col {
-  flex-grow: 1; /* Колонки будут занимать доступное пространство */
-  min-width: 150px; /* Минимальная ширина колонки */
+  flex-grow: 1;
+  min-width: 150px;
 }
 
 .logo--footer {
-  font-size: 24px; /* Размер лого в футере */
+  font-size: 24px;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 10px; /* Небольшой отступ, если есть текст под лого */
+  margin-bottom: 10px;
 }
 
 .footer__title {
@@ -422,7 +393,7 @@ a {
 }
 
 .footer__col a:hover {
-  color: #FFFFFF; /* Белый при наведении */
+  color: #FFFFFF;
 }
 
 .footer__bottom {
@@ -433,7 +404,7 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  color: rgba(255, 255, 255, 0.6); /* Более тусклый цвет для копирайта */
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer__bottom div a {
@@ -444,40 +415,36 @@ a {
   color: #FFFFFF;
 }
 
-
-/* =========================== */
-/* АДАПТИВНОСТЬ (Базовые стили) */
-/* =========================== */
 @media (max-width: 992px) {
   .hero__inner,
   .feature__inner,
   .cta__inner {
     flex-direction: column;
-    text-align: center; /* Центрируем текст при вертикальном расположении */
+    text-align: center;
   }
 
   .feature--img-left .feature__inner {
-    flex-direction: column; /* Сохраняем порядок по умолчанию (текст сверху) */
+    flex-direction: column; 
   }
   
   .hero__col--text,
   .feature__text,
   .cta__text {
-    max-width: 100%; /* Текст занимает всю ширину */
+    max-width: 100%;
   }
 
   .hero__col--img {
     margin-top: 40px;
-    text-align: center; /* Изображение по центру */
+    text-align: center; 
   }
   
   .feature__text .section-title,
   .cta__text .section-title {
-    text-align: center; /* Заголовки по центру */
+    text-align: center; 
   }
 
   .hero {
-    clip-path: none; /* Убираем диагональный срез на меньших экранах */
+    clip-path: none; 
     padding-bottom: 80px;
   }
   .cta {
@@ -498,7 +465,7 @@ a {
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 28px; /* Уменьшаем заголовки */
+    font-size: 28px;
   }
   .hero__title {
     font-size: 36px;
@@ -507,7 +474,7 @@ a {
       gap: 30px 40px;
   }
   .card {
-      max-width: 100%; /* Карточки занимают всю ширину */
+      max-width: 100%;
   }
   .footer__inner {
       flex-direction: column;
