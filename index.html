@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mabi</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
 </head>
 <body>
-
   <header class="header">
     <div class="container header__inner">
       <div class="logo">mabi</div>
@@ -19,8 +19,8 @@
         <a href="#" class="nav_link">Resources</a>
       </nav>
       <div class="header__buttons">
-        <button class="btn btn--outline">Log in</button>
-        <button class="btn btn--filled">Free Launch</button>
+        <button class="btn open-modal" data-modal="login">Log in</button>
+        <button class="btn open-modal" data-modal="register">Free Launch</button>
       </div>
     </div>
   </header>
@@ -205,6 +205,51 @@
       </div>
     </div>
   </footer>
-
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <!-- Модальное окно Входа -->
+    <div id="modalLogin" class="modal-window" hidden>
+      <button class="modal-close" aria-label="Закрыть">&times;</button>
+      <h2>Вход</h2>
+      <form id="formLogin" class="modal-form">
+        <label>
+          Email:<br>
+          <input type="email" name="email" required>
+        </label><br>
+        <label>
+          Пароль:<br>
+          <input type="password" name="password" required>
+        </label><br>
+        <button type="submit">Войти</button>
+        <p>Нет аккаунта? <span class="modal-switch" data-target="register">Зарегистрироваться</span></p>
+      </form>
+    </div>
+    
+    <!-- Модальное окно Регистрации -->
+    <div id="modalRegister" class="modal-window" hidden>
+      <button class="modal-close" aria-label="Закрыть">&times;</button>
+      <h2>Регистрация</h2>
+      <form id="formRegister" class="modal-form">
+        <label>
+          Имя:<br>
+          <input type="text" name="name" required>
+        </label><br>
+        <label>
+          Email:<br>
+          <input type="email" name="email" required>
+        </label><br>
+        <label>
+          Пароль:<br>
+          <input type="password" name="password" required>
+        </label><br>
+        <label>
+          Повтор пароля:<br>
+          <input type="password" name="password2" required>
+        </label><br>
+        <button type="submit">Зарегистрироваться</button>
+        <p>Уже есть аккаунт? <span class="modal-switch" data-target="login">Войти</span></p>
+      </form>
+    </div>
+  </div>
+<script src="script.js"></script>
 </body>
 </html>
