@@ -310,9 +310,8 @@ a {
 .cta {
   background-color: #434E69; 
   color: #FFFFFF;
-  padding: 120px 0 80px;
-  position: relative;
-  clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
+  padding: 220px 0 80px;
+  clip-path: polygon(155px 250px, 110% 0, 100% 100%, 0 100%);
 }
 
 .cta__inner {
@@ -322,7 +321,7 @@ a {
   gap: 60px;
 }
 
-.cta__media {
+.cta__media img {
   flex: 1;
 }
 
@@ -417,80 +416,104 @@ a {
   color: #FFFFFF;
 }
 
-@media (max-width: 992px) {
-  .hero__inner,
+@media (max-width: 480px) {
+  body {
+    padding: 0 16px;
+  }
+  
+  .nav {
+    display: none;
+  }
+
+  .hero__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .hero__col--text,
+  .hero__col--img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero__col--text {
+    order: 1;
+    margin-top: 60px; 
+  }
+  .hero__title1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  .hero__subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .hero__btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero__col--img {
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .partners__list {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 12px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .partners__list img {
+    flex-shrink: 0;
+    height: 28px;
+  }
+
+  .how__cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card {
+    width: 100%;
+    border-width: 2px;
+  }
+  .card__title {
+    font-size: 18px;
+  }
+  .card__text {
+    font-size: 14px;
+  }
+
   .feature__inner,
   .cta__inner {
     flex-direction: column;
     text-align: center;
   }
-
-  .feature--img-left .feature__inner {
-    flex-direction: column; 
+  .feature__media,
+  .cta__media {
+    margin-bottom: 24px;
   }
-  
-  .hero__col--text,
-  .feature__text,
-  .cta__text {
-    max-width: 100%;
-  }
-
-  .hero__col--img {
-    margin-top: 40px;
-    text-align: center; 
-  }
-  
   .feature__text .section-title,
   .cta__text .section-title {
-    text-align: center; 
+    font-size: 24px;
   }
 
-  .hero {
-    clip-path: none; 
-    padding-bottom: 80px;
-  }
-  .cta {
-    clip-path: none;
-    padding-top: 80px;
-  }
-
-  .header__inner {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .nav {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 28px;
-  }
-  .hero__title {
-    font-size: 36px;
-  }
-  .partners__list {
-      gap: 30px 40px;
-  }
-  .card {
-      max-width: 100%;
-  }
   .footer__inner {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   .footer__col {
-      min-width: 100%;
+    margin-bottom: 24px;
   }
   .footer__bottom {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
   }
   .footer__bottom div a {
-      margin: 0 8px;
+    margin: 0 6px;
   }
 }
+

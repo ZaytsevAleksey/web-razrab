@@ -1,19 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Получаем оверлей
   const overlay = document.getElementById('modalOverlay');
   if (!overlay) return;
-
-  // Получаем модальные окна
   const modalLogin = document.getElementById('modalLogin');
   const modalRegister = document.getElementById('modalRegister');
-
-  // Кнопки открытия модалок
   const openButtons = document.querySelectorAll('.open-modal');
-  
-  // Кнопки закрытия модалок
   const closeButtons = overlay.querySelectorAll('.modal-close');
-  
-  // Ссылки-переключатели внутри модалок
   const switchers = overlay.querySelectorAll('.modal-switch');
 
   // Функция открытия модалки
@@ -35,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.hidden = true;
     modalLogin.hidden = true;
     modalRegister.hidden = true;
-    // Сброс форм при закрытии (опционально)
     overlay.querySelectorAll('form').forEach(form => form.reset());
   }
 
@@ -75,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(formLogin);
       const data = Object.fromEntries(formData.entries());
       console.log('Вход:', data);
-      // Здесь можно добавить логику отправки данных на сервер
       closeModal();
     });
   }
@@ -88,14 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(formRegister);
       const data = Object.fromEntries(formData.entries());
 
-      // Проверка совпадения паролей
       if (data.password !== data.password2) {
         alert('Пароли не совпадают');
         return;
       }
-
       console.log('Регистрация:', data);
-      // Здесь можно добавить логику отправки данных на сервер
       closeModal();
     });
   }
