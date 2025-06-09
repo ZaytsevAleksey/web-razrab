@@ -36,7 +36,7 @@ a {
   text-align: center;
 }
 
-.btn  {
+.btn {
   display: inline-block;
   padding: 10px 24px;
   font-size: 15px;
@@ -46,31 +46,31 @@ a {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   text-align: center;
   border: 1px solid transparent;
-  
 }
 
-.btn--outline {
-  background-color: transparent;
-  border: 1px solid #FFFFFF;
+.btn.open-modal {
+  background-color: #FFFFFF; 
+  border: 1px solid #434E69; 
+  color: #434E69; 
+}
+
+.btn.open-modal:hover {
+  background-color: #434E69;
+  border-color: #FFFFFF;
   color: #FFFFFF;
 }
 
-.btn--outline:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.btn--filled {
+.btn[data-modal="register"] {
   background-color: #FFFFFF;
   color: #434E69;
   border-color: #434E69;
 }
 
-.btn--filled:hover {
-  background-color: #434E69; 
+.btn[data-modal="register"]:hover {
+  background-color: #434E69;
   border-color: #FFFFFF;
   color: #FFFFFF;
 }
-
 .header {
   background-color: #434E69;
   padding: 18px 0;
@@ -95,7 +95,62 @@ a {
   display: flex;
   gap: 35px; 
 }
+.nav_link svg {
+  margin-left: 5px; /* Небольшой отступ между текстом и стрелочкой */
+  transition: transform 0.3s ease; /* Анимация вращения */
+}
 
+/* Поворот стрелочки при наведении (если нужно) */
+.nav__item:hover .nav_link svg {
+  transform: rotate(180deg);
+}
+/* Стили для элемента навигации с выпадающим меню */
+.nav__item {
+  position: relative; /* Чтобы позиционировать выпадающее меню относительно этого элемента */
+}
+
+/* Стили для выпадающего меню */
+.nav__dropdown {
+  position: absolute;
+  top: 100%; /* Позиционируем под ссылкой "Resources" */
+  left: 0;
+  background-color: #434E69; /* Цвет фона, как у хедера */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Скрыто по умолчанию */
+  padding: 10px 0;
+  min-width: 150px; /* Минимальная ширина выпадающего меню */
+}
+
+/* Стили для ссылок в выпадающем меню */
+.nav__dropdown-link {
+  display: block;
+  padding: 8px 20px;
+  color: #FFFFFF; /* Белый цвет текста */
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: left;
+}
+
+.nav__dropdown-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Затемнение при наведении */
+  color: #bdc5e0;
+}
+
+/* Отображение выпадающего меню при наведении на "Resources" */
+.nav__item:hover .nav__dropdown {
+  display: block; /* Отображаем выпадающее меню */
+}
+
+/* Дополнительные стили для ссылки "Resources" */
+.nav__link--dropdown {
+  cursor: pointer; /* Изменяем курсор на указатель */
+  display: flex; /* Добавляем flexbox для выравнивания текста и иконки */
+  align-items: center; /* Выравниваем по вертикали */
+}
+.nav__link--dropdown.active svg {
+  transform: rotate(180deg);
+}
 .nav_link {
   color: #FFFFFF;
   font-weight: 500;

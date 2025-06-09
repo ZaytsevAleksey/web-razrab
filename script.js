@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(formLogin);
       const data = Object.fromEntries(formData.entries());
       console.log('Вход:', data);
+      
+      // Отправка данных на сервер
+      saveToFile('login_data.txt', data);
       closeModal();
     });
   }
@@ -74,7 +77,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       console.log('Регистрация:', data);
+      
+      // Отправка данных на сервер
+      saveToFile('register_data.txt', data);
       closeModal();
     });
   }
+
+  // Функция для отправки данных на сервер
+  function saveToFile(filename, data) {
+    fetch('save_data.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        filename: filename,
+        data: data
+      }),
+    })
+    .then(response => response.text())
+    .then(result => {
+      console.log('Данные сохранены:', result);
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownLink = document.querySelector('.nav__link--dropdown');
+  const dropdownMenu = document.querySelector('.nav__dropdown');
+
+  dropdownLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    dropdownLink.classList.toggle('active');
+  });
 });

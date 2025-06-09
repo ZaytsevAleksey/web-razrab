@@ -1,0 +1,12 @@
+Новые данные (2025-06-09 10:42:30):
+name: wasdwasdwasdwads
+email: wasdwasdwasdwads@mail.ru
+password: wasdwasdwasdwads
+password2: wasdwasdwasdwads
+
+Новые данные (2025-06-09 10:43:53):
+name: wasdwasdwasdwadswdasdwa
+email: wasdwasdwasdwadswdasdwa@mail.ru
+password: wasdwasdwasdwadswdasdwa
+password2: wasdwasdwasdwadswdasdwa
+
