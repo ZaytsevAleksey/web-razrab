@@ -8,19 +8,20 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 1.6;
   background-color: #F1F5F9; 
   color: #343D56;
   overflow-x: hidden;
   z-index: 0;
+  zoom: 125%;
 }
 
 .container {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0px;
 }
 
 a {
@@ -51,7 +52,9 @@ a {
 .btn.open-modal {
   background-color: #FFFFFF; 
   border: 1px solid #434E69; 
-  color: #434E69; 
+  color: #434E69;
+  gap: 5px;
+ 
 }
 
 .btn.open-modal:hover {
@@ -64,6 +67,7 @@ a {
   background-color: #FFFFFF;
   color: #434E69;
   border-color: #434E69;
+  
 }
 
 .btn[data-modal="register"]:hover {
@@ -82,75 +86,84 @@ a {
 .header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  
 }
 
 .logo {
-  font-size: 35px;
+  font-size: 45px;
   font-weight: 700;
   color: #FFFFFF;
+  justify-content: space-around;
+  margin-right: 15px;
+  margin-left: 0px;
 }
-
+.menu-toggle{
+  display: none;
+}
 .nav {
   display: flex;
   gap: 35px; 
+  margin-right: 250px;
+  margin-left: 25px;
+  padding-top: 25px;
 }
 .nav_link svg {
-  margin-left: 5px; /* Небольшой отступ между текстом и стрелочкой */
-  transition: transform 0.3s ease; /* Анимация вращения */
+  margin-left: 5px;
+  transition: transform 0.3s ease;
 }
 
-/* Поворот стрелочки при наведении (если нужно) */
+/* Поворот стрелочки при наведении */
 .nav__item:hover .nav_link svg {
   transform: rotate(180deg);
 }
+
 /* Стили для элемента навигации с выпадающим меню */
 .nav__item {
-  position: relative; /* Чтобы позиционировать выпадающее меню относительно этого элемента */
+  position: relative;
 }
 
 /* Стили для выпадающего меню */
 .nav__dropdown {
   position: absolute;
-  top: 100%; /* Позиционируем под ссылкой "Resources" */
+  top: 100%;
   left: 0;
-  background-color: #434E69; /* Цвет фона, как у хедера */
+  background-color: #434E69;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: none; /* Скрыто по умолчанию */
+  display: none;
   padding: 10px 0;
-  min-width: 150px; /* Минимальная ширина выпадающего меню */
+  min-width: 150px;
+  z-index: 10; /* Добавлен z-index */
 }
 
 /* Стили для ссылок в выпадающем меню */
 .nav__dropdown-link {
   display: block;
   padding: 8px 20px;
-  color: #FFFFFF; /* Белый цвет текста */
+  font-size: 16px;
+  color: #FFFFFF;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: left;
 }
 
 .nav__dropdown-link:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Затемнение при наведении */
+  background-color: rgba(255, 255, 255, 0.1);
   color: #bdc5e0;
 }
 
-/* Отображение выпадающего меню при наведении на "Resources" */
+/* Отображение выпадающего меню при наведении */
 .nav__item:hover .nav__dropdown {
-  display: block; /* Отображаем выпадающее меню */
+  display: block;
 }
 
-/* Дополнительные стили для ссылки "Resources" */
+/* Дополнительные стили для ссылки Resources */
 .nav__link--dropdown {
-  cursor: pointer; /* Изменяем курсор на указатель */
-  display: flex; /* Добавляем flexbox для выравнивания текста и иконки */
-  align-items: center; /* Выравниваем по вертикали */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-.nav__link--dropdown.active svg {
-  transform: rotate(180deg);
-}
+
 .nav_link {
   color: #FFFFFF;
   font-weight: 500;
@@ -168,6 +181,8 @@ a {
 .header__buttons {
   display: flex;
   gap: 12px;
+  margin-left: 280px;
+  margin-right: -300px;
 }
 
 .hero {
@@ -477,12 +492,12 @@ a {
 
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
+    font-size: 100%;
     line-height: 1.5;
   }
 
   .container {
-    padding: 0 15px;
+    padding: 0px;
   }
 
   .section-title {
@@ -492,17 +507,39 @@ a {
 
   /* Header */
   .header__inner {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px 0;
+    display: flex;
+    justify-content: space-between; /* Лого слева, гамбургер справа */
+    align-items: center;
+    padding: 15px; /* Отступы */
+    padding-top: 1px;
+    padding-bottom: 0px;
   }
-
+.logo {
+    /* Стили для логотипа */
+    font-size: 30px; /* Размер шрифта */
+  }
   .nav {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none; /* Скрываем навигацию по умолчанию */
+  }
+.menu-toggle {
+    /* Стили для кнопки-гамбургера */
+    color: #FFFFFF;
+    display: block;
+    cursor: pointer;
+    font-size: 24px; /* Размер иконки */
   }
 
+  /* Показать навигацию при клике на гамбургер */
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Ниже шапки */
+    left: 0;
+    width: 100%;
+    background-color: #434E69; /* Цвет фона */
+    z-index: 100; /* Поверх остального контента */
+  }
   /* Hero */
   .hero {
     padding: 60px 0 1px;
@@ -533,7 +570,7 @@ a {
   }
 
   .hero__col--img img {
-    width: 430px;
+    width: 330px;
   }
 
   /* Partners */
@@ -578,7 +615,7 @@ a {
   }
 
   .feature__media img {
-    max-width: 100%;
+    max-width: 400px;
   }
 
   /* CTA */
@@ -597,7 +634,7 @@ a {
     text-align: center;
   }
   .cta__media img {
-  width: 440px;
+  width: 400px;
 }
 
   /* Footer */
@@ -622,21 +659,44 @@ a {
 }
 
 /* Стили для планшетов (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .container {
     max-width: 90%;
   }
 
   /* Header */
   .header__inner {
-    justify-content: space-between;
-    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* Лого слева, гамбургер справа */
+    align-items: center;
+    padding: 10px 20px; /* Отступы */
   }
-
+  .logo {
+    /* Стили для логотипа */
+    font-size: 40px; /* Размер шрифта */
+  }
   .nav {
-    gap: 20px;
+    display: none;
+  }
+.menu-toggle {
+    /* Стили для кнопки-гамбургера */
+    color:#FFFFFF;
+    display: block;
+    cursor: pointer;
+    font-size: 26px; /* Размер иконки */
   }
 
+  /* Показать навигацию при клике на гамбургер */
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Ниже шапки */
+    left: 0;
+    width: 100%;
+    background-color: #434E69; /* Цвет фона */
+    z-index: 100; /* Поверх остального контента */
+  }
   /* Hero */
   .hero__inner {
     gap: 50px;
@@ -656,11 +716,16 @@ a {
 
   /* How it works */
   .how__cards {
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 20px; /* Отступы между карточками */
   }
 
   .card {
-    width: calc(50% - 10px);
+    width: auto;
+  }
+  .how__cards > .card:nth-child(3) {
+    grid-column: 1 / -1; /* Занимает обе колонки */
   }
 
   /* Features */
@@ -677,10 +742,21 @@ a {
     clip-path: polygon(50px 100px, 110% 0, 100% 100%, 0 100%);
     padding: 120px 0 80px;
   }
+  .nav_link svg {
+    margin-left: 3px; /* Уменьшаем отступ для меньших экранов */
+  }
+  /* Поворот стрелки при наведении — оставляем без изменений */
+  .nav__item:hover .nav_link svg {
+    transform: rotate(180deg);
+  }
 }
 
 /* Дополнительные корректировки для очень маленьких экранов */
-@media (max-width: 480px) {
+@media (max-width: 425px) {
+  body {
+    font-size: 100%;
+    margin-right: -30px;
+  }
   .hero__title1 {
     font-size: 30px;
   }
@@ -693,7 +769,22 @@ a {
     padding: 8px 16px;
     font-size: 14px;
   }
-
-  
-
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  /* Стрелки и их отступы */
+  .nav_link svg {
+    margin-left: 2px;
+    width: 10px;
+    height: 7px;
+  }
+  /* В выпадающем меню — расширение для удобства */
+  .nav__dropdown {
+    min-width: 180px;
+  }
+  /* Поворот стрелки при наведении — оставляем */
+  .nav__item:hover .nav_link svg {
+    transform: rotate(180deg);
+  }
 }

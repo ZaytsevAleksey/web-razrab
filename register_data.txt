@@ -10,3 +10,9 @@ email: wasdwasdwasdwadswdasdwa@mail.ru
 password: wasdwasdwasdwadswdasdwa
 password2: wasdwasdwasdwadswdasdwa
 
+Новые данные (2025-06-09 17:00:05):
+name: Зайцев Алексей
+email: alesha-zaytsev-1337@mail.ru
+password: qwerty
+password2: qwerty
+
