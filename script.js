@@ -1,4 +1,3 @@
-// State management
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
@@ -13,18 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeButtons = overlay.querySelectorAll('.modal-close');
   const switchers = overlay.querySelectorAll('.modal-switch');
 
-  // Auth elements
   const guestButtons = document.getElementById('guestButtons');
   const userButtons = document.getElementById('userButtons');
   const profileBtn = document.getElementById('profileBtn');
   const logoutBtn = document.getElementById('logoutBtn');
 
-  // Profile elements
   const profileName = document.getElementById('profileName');
   const profileEmail = document.getElementById('profileEmail');
   const profileDate = document.getElementById('profileDate');
 
-  // Initialize auth UI
   function initAuthUI() {
     if (currentUser) {
       showUserButtons();
@@ -97,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.querySelectorAll('form').forEach(form => form.reset());
   }
 
-  // Load existing users from save_data.txt on server
   function loadRegisteredUsers() {
     fetch('save_data.php?action=getUsers')
       .then(response => response.json())
@@ -107,28 +102,23 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(error => {
         console.error('Error loading users:', error);
-        // Fallback to localStorage if server fails
         registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
       });
   }
 
-  // Check credentials against registered users
   function authenticateUser(email, password) {
     return registeredUsers.find(user => 
       user.email === email && user.password === password
     );
   }
 
-  // Check if email already exists
   function emailExists(email) {
     return registeredUsers.some(user => user.email === email);
   }
 
-  // Initialize auth UI on load
   initAuthUI();
   loadRegisteredUsers();
 
-  // Open modal buttons
   openButtons.forEach(button => {
     button.addEventListener('click', () => {
       const target = button.dataset.modal;
@@ -136,14 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Profile button
   if (profileBtn) {
     profileBtn.addEventListener('click', () => {
       openModal('profile');
     });
   }
 
-  // Logout button
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
       if (confirm('Are you sure you want to logout?')) {
@@ -176,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(formLogin);
       const data = Object.fromEntries(formData.entries());
       
-      // Validate credentials
       const user = authenticateUser(data.email, data.password);
       if (user) {
         login({
@@ -208,7 +195,6 @@ if (formRegister) {
       return;
     }
 
-    // Add to registered users
     const newUser = {
       name: data.name,
       email: data.email,
@@ -219,17 +205,14 @@ if (formRegister) {
     registeredUsers.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
     
-    // Save to server in register_data.txt
     saveToFile('register_data.txt', data);
     
-    // Register and auto-login
     login(newUser);
     
     alert('Registration successful!');
   });
 }
 
-// Function to send data to server - UPDATED for register_data.txt
 function saveToFile(filename, data) {
   fetch('save_data.php', {
     method: 'POST',
@@ -239,7 +222,7 @@ function saveToFile(filename, data) {
     body: JSON.stringify({
       filename: filename,
       data: data,
-      action: 'register' // Добавляем действие для ясности
+      action: 'register' 
     }),
   })
   .then(response => response.text())
@@ -251,7 +234,6 @@ function saveToFile(filename, data) {
   });
 }
 
-  // Dropdown menu functionality
   const dropdownLink = document.querySelector('.nav__link--dropdown');
   const dropdownMenu = document.querySelector('.nav__dropdown');
 
@@ -263,7 +245,6 @@ function saveToFile(filename, data) {
     });
   }
 
-  // Mobile menu toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
 
@@ -273,7 +254,6 @@ function saveToFile(filename, data) {
     });
   }
 
-  // Close mobile menu when clicking on links
   document.querySelectorAll('.nav_link').forEach(link => {
     link.addEventListener('click', function() {
       nav.classList.remove('active');
