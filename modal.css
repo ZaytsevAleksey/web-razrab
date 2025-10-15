@@ -91,3 +91,24 @@
   cursor: pointer;
   font-size: .9rem;
 }
+#modalProfile .modal-window {
+    max-width: 400px;
+}
+
+.profile-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.profile-info p {
+    margin: 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.profile-info p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}

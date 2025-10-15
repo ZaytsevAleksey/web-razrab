@@ -29,10 +29,18 @@
       <a href="#" class="nav__dropdown-link">FAQs</a>
     </div>
   </div>
-      
-      <div class="header__buttons">
-        <button class="btn open-modal" data-modal="login">Log in</button>
-        <button class="btn open-modal" data-modal="register">Free Launch</button>
+       <div class="header__buttons">
+        <!-- Кнопки для неавторизованных пользователей -->
+        <div id="guestButtons">
+          <button class="btn open-modal" data-modal="login">Log in</button>
+          <button class="btn open-modal" data-modal="register">Free Launch</button>
+        </div>
+        
+        <!-- Кнопки для авторизованных пользователей -->
+        <div id="userButtons" style="display: none;">
+          <button class="btn profile-btn" id="profileBtn">Profile</button>
+          <button class="btn logout-btn" id="logoutBtn">Logout</button>
+        </div>
       </div>
       </nav>
     </div>
@@ -259,6 +267,15 @@
         <p>Уже есть аккаунт? <span class="modal-switch" data-target="login">Войти</span></p>
       </form>
     </div>
+   <div id="modalProfile" class="modal-window" hidden>
+  <button class="modal-close" aria-label="Закрыть">&times;</button>
+  <h2>Profile</h2>
+  <div class="profile-info">
+    <p><strong>Name:</strong> <span id="profileName">-</span></p>
+    <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
+    <p><strong>Member since:</strong> <span id="profileDate">-</span></p>
+  </div>
+  </div>
   </div>
 <script src="script.js"></script>
 </body>
