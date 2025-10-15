@@ -1,4 +1,4 @@
 Новая запись:
 name: Иван
-email: qwertyqwerty123@mail.ru
+email: qwertyqwert123@mail.ru
 password: qwertyqwerty123

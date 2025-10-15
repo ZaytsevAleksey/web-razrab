@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filename = $input['filename'];
     $data = $input['data'];
 
-    // Форматируем данные для записи
     $content = "New registration (" . date('Y-m-d H:i:s') . "):\n";
     $content .= "name: " . ($data['name'] ?? '') . "\n";
     $content .= "email: " . ($data['email'] ?? '') . "\n";
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $content .= "password2: " . ($data['password2'] ?? '') . "\n";
     $content .= "----------------------------------------\n\n";
 
-    // Записываем в файл
     $result = file_put_contents($filename, $content, FILE_APPEND | LOCK_EX);
 
     if ($result === false) {
@@ -32,19 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'getUsers') {
-    // Парсим существующих пользователей из register_data.txt
     $users = [];
     
     if (file_exists('register_data.txt')) {
         $content = file_get_contents('register_data.txt');
         $entries = explode("----------------------------------------", $content);
-        
         foreach ($entries as $entry) {
             if (empty(trim($entry))) continue;
-            
             $lines = explode("\n", trim($entry));
             $user = [];
-            
             foreach ($lines as $line) {
                 if (strpos($line, ': ') !== false) {
                     list($key, $value) = explode(': ', $line, 2);
@@ -56,25 +50,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
             }
-            
-            // Добавляем пользователя только если есть email и пароль
             if (isset($user['email']) && isset($user['password']) && !empty($user['email'])) {
-                // Проверяем, нет ли уже такого пользователя в массиве
                 $exists = false;
                 foreach ($users as $existingUser) {
                     if ($existingUser['email'] === $user['email']) {
                         $exists = true;
                         break;
                     }
-                }
-                
+                }   
                 if (!$exists) {
                     $users[] = $user;
                 }
             }
         }
     }
-    
     echo json_encode($users);
     
 } else {
